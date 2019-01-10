@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import Enzyme from 'enzyme'
-import {shallow, mount, render} from 'enzyme'
+import {shallow, mount} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import Prompt from '../src/Prompt'
@@ -12,9 +12,9 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe(`Prompt`, () => {
 
-  test(`should render 5 smiley faces and 1 input text box`, () => {
+  test(`should render 5 smiley faces and 1 link to EBI support`, () => {
     expect(shallow(<Prompt />).find(Emoji)).toHaveLength(5)
-    expect(shallow(<Prompt />).find(`input`)).toHaveLength(1)
+    expect(shallow(<Prompt />).find(`a`)).toHaveLength(1)
   })
 
   test(`should display a feedback scale when click smiley faces`, () => {

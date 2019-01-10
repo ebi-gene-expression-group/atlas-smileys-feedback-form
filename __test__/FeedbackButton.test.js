@@ -11,8 +11,8 @@ jest.mock("react-ga")
 Enzyme.configure({ adapter: new Adapter() })
 
 describe(`FeedbackButton`, () => {
-  test(`should render a feedback button`, () => {
-    expect(shallow(<FeedbackButton />).find(`button`)).toHaveLength(1)
+  test(`should render a side feedback button`, () => {
+    expect(shallow(<FeedbackButton />).find(`.feedback-button`)).toHaveLength(1)
   })
 
   test(`should popup a feedback form by clicking a button`, () => {

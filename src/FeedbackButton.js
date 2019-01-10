@@ -37,7 +37,7 @@ const FeedbackButtonDiv = styled.button`
 const FeedbackButton = () =>
   <div>
     <Popup/>
-    <FeedbackButtonDiv onClick={onClick}>
+    <FeedbackButtonDiv className="feedback-button" onClick={onClick}>
       <i className="icon icon-common icon-comment-alt"></i> Feedback
     </FeedbackButtonDiv>
   </div>

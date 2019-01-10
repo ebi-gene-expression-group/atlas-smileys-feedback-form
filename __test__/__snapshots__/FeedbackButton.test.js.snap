@@ -12,17 +12,14 @@ exports[`FeedbackButton matches snapshot 1`] = `
       style={Object {}}
     />
   </div>
-  <div
-    className="sc-htpNat iXmUXN"
+  <button
+    className="feedback-button sc-htpNat eKDMyb"
+    onClick={[Function]}
   >
     <i
-      className="icon icon-common icon-paper-plane"
+      className="icon icon-common icon-comment-alt"
     />
-    <button
-      onClick={[Function]}
-    >
-      Feedback
-    </button>
-  </div>
+     Feedback
+  </button>
 </div>
 `;
