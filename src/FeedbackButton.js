@@ -43,12 +43,8 @@ const FeedbackButton = () =>
   </div>
 
 const onClick = () => {
-  Popup.registerPlugin(`prompt`, function (defaultValue, placeholder, callback) {
-    let promptValue, smiley = null
-
-    const promptChange = function (inputValue) {
-      promptValue = inputValue
-    }
+  Popup.registerPlugin(`prompt`, function (callback) {
+    let smiley = null
 
     const smileyChange = function (smileyValue) {
       smiley = smileyValue
@@ -56,7 +52,7 @@ const onClick = () => {
 
     this.create({
       title: `Your feedback`,
-      content: <Prompt onChange={promptChange} onSelect={smileyChange} placeholder={placeholder} value={defaultValue} />,
+      content: <Prompt onSelect={smileyChange} />,
       buttons: {
         left: [`cancel`],
         right: [{
@@ -64,10 +60,10 @@ const onClick = () => {
           key: `⌘+s`,
           className: `success`,
           action: function () {
-            callback(promptValue)
+            callback()
             smiley && ReactGA.event({
               category: `Satisfaction`,
-              action: `smiley`
+              action: smiley
             })
             smiley && Popup.close()
           }
@@ -76,13 +72,8 @@ const onClick = () => {
     })
   })
 
-  Popup.plugins().prompt(``, `Type your comment`, function (value) {
+  Popup.plugins().prompt(function () {
     Popup.alert(`Thank you for submitting your feedback.`)
-
-    ReactGA.event({
-      category: 'Comments',
-      action: value
-    })
   })
 
 }
