@@ -21,35 +21,10 @@ class Prompt extends React.Component {
     super(props)
 
     this.state = {
-      value: this.props.defaultValue,
       smileyDescription: ``,
       chosenSmiley: ``,
-      required: this.props.required
     }
-
-    this.onChange = (e) => this._onChange(e)
     this.onClick = this.onClick.bind(this)
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    if (props.required !== state.required) {
-      return {
-        required: props.required
-      }
-    }
-    // No state update necessary
-    return null
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.value !== this.state.value) {
-      this.props.onChange(this.state.value, this.state.chosenSmiley)
-    }
-  }
-
-  _onChange(e) {
-    let value = e.target.value
-    this.setState({value: value})
   }
 
   onClick(description){
@@ -60,7 +35,7 @@ class Prompt extends React.Component {
   }
 
   render() {
-    const {smileyDescription, chosenSmiley, value} = this.state
+    const {smileyDescription, chosenSmiley} = this.state
     const smileyScale = [`Terrible`, `Bad`, `Okay`, `Good`, `Great`]
     const smileyId = [`disappointed`, `slightly_frowning_face`, `neutral_face`, `grin`, `satisfied`]
 
@@ -85,10 +60,8 @@ class Prompt extends React.Component {
           :
           `empty`}
       </p>,
-      <p style={{visibility: value && !chosenSmiley ? `visible` : `hidden`, color: `red`}}>This is required field.</p>,
       <br/>,
-      <p>Would you like to add a comment ?</p>,
-      <input type="text" placeholder={this.props.placeholder} className="mm-popup__input" value={this.state.value} onChange={this.onChange} />
+      <a href="https://www.ebi.ac.uk/support/gxa">Click here to add a comment . </a>,
     ]
   }
 }
