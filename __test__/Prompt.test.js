@@ -13,12 +13,13 @@ Enzyme.configure({ adapter: new Adapter() })
 describe(`Prompt`, () => {
 
   test(`should render 5 smiley faces and 1 link to EBI support`, () => {
-    expect(shallow(<Prompt />).find(Emoji)).toHaveLength(5)
-    expect(shallow(<Prompt />).find(`a`)).toHaveLength(1)
+    const wrapper = shallow(<Prompt feedbackFormLink={`linto`} onSelect={()=>{}} />)
+    expect(wrapper.find(Emoji)).toHaveLength(5)
+    expect(wrapper.find(`a`)).toHaveLength(1)
   })
 
   test(`should display a feedback scale when click smiley faces`, () => {
-    const wrapper = mount(<Prompt onSelect={()=>{}} />)
+    const wrapper = mount(<Prompt feedbackFormLink={`linto`}  onSelect={()=>{}} />)
     expect(wrapper.find(`#scale`).text()).toBe(`empty`)
 
     wrapper.find(Emoji).first().simulate(`click`)
@@ -26,7 +27,7 @@ describe(`Prompt`, () => {
   })
 
   test(`matches snapshot`, () => {
-    const tree = renderer.create(<Prompt />).toJSON()
+    const tree = renderer.create(<Prompt feedbackFormLink={`linto`}  onSelect={()=>{}}/>).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

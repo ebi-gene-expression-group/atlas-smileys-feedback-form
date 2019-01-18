@@ -13,7 +13,8 @@ exports[`FeedbackButton matches snapshot 1`] = `
     />
   </div>
   <button
-    className="feedback-button sc-htpNat eKDMyb"
+    className="sc-htpNat eKDMyb"
+    id="feedback-button"
     onClick={[Function]}
   >
     <i

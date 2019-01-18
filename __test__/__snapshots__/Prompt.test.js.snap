@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Prompt matches snapshot 1`] = `
-Array [
+<div>
   <p>
     How satisfied are you ?
-  </p>,
-  <br />,
+  </p>
+  <br />
   <div
     className="sc-bwzfXH jmOmbA"
   >
@@ -129,7 +129,7 @@ Array [
         />
       </span>
     </div>
-  </div>,
+  </div>
   <p
     id="scale"
     style={
@@ -140,12 +140,12 @@ Array [
     }
   >
     empty
-  </p>,
-  <br />,
+  </p>
+  <br />
   <a
-    href="https://www.ebi.ac.uk/support/gxa"
+    href="linto"
   >
-    Click here to add a comment . 
-  </a>,
-]
+    Click here to add a comment. 
+  </a>
+</div>
 `;
