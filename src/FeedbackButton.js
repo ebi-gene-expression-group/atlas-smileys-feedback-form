@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Popup from 'react-popup'
+import PropTypes from 'prop-types'
 
 import Prompt from './Prompt'
 import ReactGA from 'react-ga'
-
-ReactGA.initialize('UA-131036461-1')
-ReactGA.pageview(window.location.pathname + window.location.search)
 
 const FeedbackButtonDiv = styled.button`
   position:fixed;
@@ -34,48 +32,77 @@ const FeedbackButtonDiv = styled.button`
   transform: rotate(-90deg);
 `
 
-const FeedbackButton = () =>
-  <div>
-    <Popup/>
-    <FeedbackButtonDiv className="feedback-button" onClick={onClick}>
-      <i className="icon icon-common icon-comment-alt"></i> Feedback
-    </FeedbackButtonDiv>
-  </div>
+class FeedbackButton extends React.Component{
 
-const onClick = () => {
-  Popup.registerPlugin(`prompt`, function (callback) {
-    let smiley = null
+  constructor(props) {
+    super(props)
 
-    const smileyChange = function (smileyValue) {
-      smiley = smileyValue
+    this.state = {
+      smiley: ``
     }
+    this.onClick = this.onClick.bind(this)
+    this.smileyChange = this.smileyChange.bind(this)
+  }
 
-    this.create({
-      title: `Your feedback`,
-      content: <Prompt onSelect={smileyChange} />,
-      buttons: {
-        left: [`cancel`],
-        right: [{
-          text: `Save`,
-          key: `⌘+s`,
-          className: `success`,
-          action: function () {
-            callback()
-            smiley && ReactGA.event({
-              category: `Satisfaction`,
-              action: smiley
-            })
-            smiley && Popup.close()
-          }
-        }]
-      }
+  smileyChange(smileyValue){
+    this.setState(
+      {smiley: smileyValue},
+      () => {
+        Popup.close() 
+        this.onClick()
+      })
+  }
+
+  onClick(){
+    const {feedbackFormLink} = this.props
+
+    Popup.registerPlugin(`prompt`, function (smiley, smileyChange, callback) {
+      this.create({
+        title: `Your feedback`,
+        content: <Prompt feedbackFormLink={feedbackFormLink} onSelect={smileyChange} />,
+        buttons: {
+          left: [`cancel`],
+          right: smiley ? [{
+            text: `Save`,
+            className: `success`,
+            action: function () {
+              console.log(`in`,smiley)
+              callback()
+              smiley && ReactGA.event({
+                category: `Satisfaction`,
+                action: smiley
+              })
+              smiley && Popup.close()
+            }
+          }] : []
+        }
+      })
     })
-  })
 
-  Popup.plugins().prompt(function () {
-    Popup.alert(`Thank you for submitting your feedback.`)
-  })
+    Popup.plugins().prompt(this.state.smiley, this.smileyChange, function () {
+      Popup.alert(`Thank you for submitting your feedback.`)
+    })
 
+  }
+
+  render(){
+    ReactGA.initialize(this.props.GAid)
+    ReactGA.pageview(window.location.pathname + window.location.search)
+
+    return(
+      <div>
+        <Popup defaultOk={`OK`} />
+        <FeedbackButtonDiv id={`feedback-button`} onClick={this.onClick}>
+          <i className={`icon icon-common icon-comment-alt`}></i> Feedback
+        </FeedbackButtonDiv>
+      </div>
+    )
+  }
+}
+
+FeedbackButton.propTypes = {
+  feedbackFormLink: PropTypes.string.isRequired,
+  GAid: PropTypes.string.isRequired
 }
 
 export default FeedbackButton
