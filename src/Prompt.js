@@ -1,6 +1,7 @@
 import React from 'react'
 import { Emoji } from 'emoji-mart'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const SmileyFace = styled.div`
   transition: all 0.5s;
@@ -22,7 +23,7 @@ class Prompt extends React.Component {
 
     this.state = {
       smileyDescription: ``,
-      chosenSmiley: ``,
+      chosenSmiley: ``
     }
     this.onClick = this.onClick.bind(this)
   }
@@ -39,31 +40,35 @@ class Prompt extends React.Component {
     const smileyScale = [`Terrible`, `Bad`, `Okay`, `Good`, `Great`]
     const smileyId = [`disappointed`, `slightly_frowning_face`, `neutral_face`, `grin`, `satisfied`]
 
-    return[
-      <p>How satisfied are you ?</p>,
-      <br/>,
-      <SmileyContainer>
-        {
-          smileyScale.map((scale, idx) =>
-            <SmileyFace key={scale} status={chosenSmiley === scale}>
-              <Emoji emoji={{id: smileyId[idx], skin: 3}} size={40} set={`emojione`}
-                onLeave={() => this.setState({smileyDescription: ``})}
-                onOver={() => this.setState({smileyDescription: scale})}
-                onClick={() => this.onClick(scale, idx)}/>
-            </SmileyFace>
-          )
-        }
-      </SmileyContainer>,
-      <p id={`scale`} style={{visibility: chosenSmiley || smileyDescription ? `visible` : `hidden`, textAlign: `center`}}>
-        {chosenSmiley || smileyDescription ?
-          smileyDescription ? smileyDescription : chosenSmiley
-          :
-          `empty`}
-      </p>,
-      <br/>,
-      <a href="https://www.ebi.ac.uk/support/gxa">Click here to add a comment . </a>,
-    ]
+    return(
+      <div>
+        <p>How satisfied are you ?</p>
+        <br/>
+        <SmileyContainer>
+          {
+            smileyScale.map((scale, idx) =>
+              <SmileyFace key={scale} status={chosenSmiley === scale}>
+                <Emoji emoji={{id: smileyId[idx], skin: 3}} size={40} set={`emojione`}
+                  onLeave={() => this.setState({smileyDescription: ``})}
+                  onOver={() => this.setState({smileyDescription: scale})}
+                  onClick={() => this.onClick(scale)}/>
+              </SmileyFace>
+            )
+          }
+        </SmileyContainer>
+        <p id={`scale`} style={{visibility: chosenSmiley || smileyDescription ? `visible` : `hidden`, textAlign: `center`}}>
+          { smileyDescription || chosenSmiley || `empty` }
+        </p>
+        <br/>
+        <a href={this.props.feedbackFormLink}>Click here to add a comment. </a>
+      </div>
+    )
   }
+}
+
+Prompt.propTypes = {
+  onSelect: PropTypes.func.isRequired,
+  feedbackFormLink: PropTypes.string.isRequired
 }
 
 export default Prompt
