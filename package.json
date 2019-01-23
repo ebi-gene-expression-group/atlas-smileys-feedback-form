@@ -29,7 +29,6 @@
     "url": "https://github.com/ebi-gene-expression-group/atlas-smileys-feedback-form"
   },
   "dependencies": {
-    "emoji-mart": "^2.9.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.3",

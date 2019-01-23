@@ -66,7 +66,6 @@ class FeedbackButton extends React.Component{
             text: `Save`,
             className: `success`,
             action: function () {
-              console.log(`in`,smiley)
               callback()
               smiley && ReactGA.event({
                 category: `Satisfaction`,
