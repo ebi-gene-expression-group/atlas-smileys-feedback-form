@@ -1,7 +1,7 @@
 import React from 'react'
-import { Emoji } from 'emoji-mart'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Emoji from './Emojione'
 
 const SmileyFace = styled.div`
   transition: all 0.5s;
@@ -48,7 +48,7 @@ class Prompt extends React.Component {
           {
             smileyScale.map((scale, idx) =>
               <SmileyFace key={scale} status={chosenSmiley === scale}>
-                <Emoji emoji={{id: smileyId[idx], skin: 3}} size={40} set={`emojione`}
+                <Emoji emoji={smileyId[idx]}
                   onLeave={() => this.setState({smileyDescription: ``})}
                   onOver={() => this.setState({smileyDescription: scale})}
                   onClick={() => this.onClick(scale)}/>
