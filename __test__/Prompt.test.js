@@ -5,7 +5,7 @@ import {shallow, mount} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import Prompt from '../src/Prompt'
-import { Emoji } from 'emoji-mart'
+import Emoji from '../src/Emojione'
 
 Enzyme.configure({ adapter: new Adapter() })
 
