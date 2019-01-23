@@ -23,7 +23,7 @@ const Emoji = ({emoji, onLeave, onOver, onClick}) =>{
 }
 
 Emoji.propTypes={
-  emoji: PropTypes.string.isRquired,
+  emoji: PropTypes.string.isRequired,
   onLeave: PropTypes.func.isRequired,
   onOver: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired
