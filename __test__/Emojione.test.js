@@ -26,7 +26,7 @@ describe(`Emojione`, () => {
   })
 
   test(`matches snapshot`, () => {
-    const tree = renderer.create(<Emoji  {...props}/>).toJSON()
+    const tree = renderer.create(<Emoji  {...props} emoji={`grin`}/>).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
