@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Emoji from './Emojione'
+import Emoji from './Emoji'
 
 const SmileyFace = styled.div`
   transition: all 0.5s;
@@ -28,17 +28,17 @@ class Prompt extends React.Component {
     this.onClick = this.onClick.bind(this)
   }
 
-  onClick(description){
+  onClick(description, value){
     this.setState({
       chosenSmiley: description
     })
-    this.props.onSelect(description)
+    this.props.onSelect(value+1)
   }
 
   render() {
     const {smileyDescription, chosenSmiley} = this.state
     const smileyScale = [`Terrible`, `Bad`, `Okay`, `Good`, `Great`]
-    const smileyId = [`disappointed`, `slightly_frowning_face`, `neutral_face`, `grin`, `satisfied`]
+    const smileyId = [`disappointed`, `pensive`, `neutral_face`, `grin`, `satisfied`]
 
     return(
       <div>
@@ -51,7 +51,7 @@ class Prompt extends React.Component {
                 <Emoji emoji={smileyId[idx]}
                   onLeave={() => this.setState({smileyDescription: ``})}
                   onOver={() => this.setState({smileyDescription: scale})}
-                  onClick={() => this.onClick(scale)}/>
+                  onClick={() => this.onClick(scale,idx)}/>
               </SmileyFace>
             )
           }

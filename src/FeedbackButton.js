@@ -38,7 +38,7 @@ class FeedbackButton extends React.Component{
     super(props)
 
     this.state = {
-      smiley: ``
+      smiley: 0
     }
     this.onClick = this.onClick.bind(this)
     this.smileyChange = this.smileyChange.bind(this)
@@ -69,7 +69,7 @@ class FeedbackButton extends React.Component{
               callback()
               smiley && ReactGA.event({
                 category: `Satisfaction`,
-                action: smiley
+                action: smiley.toString()
               })
               smiley && Popup.close()
             }
@@ -92,7 +92,7 @@ class FeedbackButton extends React.Component{
       <div>
         <Popup defaultOk={`OK`} />
         <FeedbackButtonDiv id={`feedback-button`} onClick={this.onClick}>
-          <i className={`icon icon-common icon-comment-alt`}></i> Feedback
+          <i className={`icon icon-functional`} data-icon="n"> </i>Feedback
         </FeedbackButtonDiv>
       </div>
     )
