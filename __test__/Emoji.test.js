@@ -4,7 +4,7 @@ import Enzyme from 'enzyme'
 import {shallow} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import Emoji from '../src/Emojione'
+import Emoji from '../src/Emoji'
 
 Enzyme.configure({ adapter: new Adapter() })
 
