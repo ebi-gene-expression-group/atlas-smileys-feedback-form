@@ -18,9 +18,12 @@ exports[`FeedbackButton matches snapshot 1`] = `
     onClick={[Function]}
   >
     <i
-      className="icon icon-common icon-comment-alt"
-    />
-     Feedback
+      className="icon icon-functional"
+      data-icon="n"
+    >
+       
+    </i>
+    Feedback
   </button>
 </div>
 `;

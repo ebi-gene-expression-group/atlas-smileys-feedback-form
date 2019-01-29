@@ -17,36 +17,30 @@ exports[`Prompt matches snapshot 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        <span
-          style={
-            Object {
-              "fontSize": "40px",
-            }
+        style={
+          Object {
+            "fontSize": "40px",
           }
-        >
-          😞
-        </span>
+        }
+      >
+        😞
       </span>
     </div>
     <div
       className="sc-bdVaJa eQqCNi"
     >
       <span
-        id="slightly_frowning_face"
+        id="pensive"
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        <span
-          style={
-            Object {
-              "fontSize": "40px",
-            }
+        style={
+          Object {
+            "fontSize": "40px",
           }
-        >
-          🙁
-        </span>
+        }
+      >
+        😔
       </span>
     </div>
     <div
@@ -57,16 +51,13 @@ exports[`Prompt matches snapshot 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        <span
-          style={
-            Object {
-              "fontSize": "40px",
-            }
+        style={
+          Object {
+            "fontSize": "40px",
           }
-        >
-          😐
-        </span>
+        }
+      >
+        😐
       </span>
     </div>
     <div
@@ -77,16 +68,13 @@ exports[`Prompt matches snapshot 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        <span
-          style={
-            Object {
-              "fontSize": "40px",
-            }
+        style={
+          Object {
+            "fontSize": "40px",
           }
-        >
-          😁
-        </span>
+        }
+      >
+        😁
       </span>
     </div>
     <div
@@ -97,16 +85,13 @@ exports[`Prompt matches snapshot 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        <span
-          style={
-            Object {
-              "fontSize": "40px",
-            }
+        style={
+          Object {
+            "fontSize": "40px",
           }
-        >
-          😆
-        </span>
+        }
+      >
+        😆
       </span>
     </div>
   </div>

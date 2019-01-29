@@ -6,15 +6,12 @@ exports[`Emojione matches snapshot 1`] = `
   onClick={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
->
-  <span
-    style={
-      Object {
-        "fontSize": "40px",
-      }
+  style={
+    Object {
+      "fontSize": "40px",
     }
-  >
-    😁
-  </span>
+  }
+>
+  😁
 </span>
 `;

@@ -21,7 +21,7 @@ describe(`Emojione`, () => {
 
   test(`should render 2 span components and id equals to emoji id`, () => {
     const wrapper = shallow(<Emoji {...props} />)
-    expect(wrapper.find(`span`)).toHaveLength(2)
+    expect(wrapper.find(`span`)).toHaveLength(1)
     expect(wrapper.find(`#${randoemFace}`)).toHaveLength(1)
   })
 
