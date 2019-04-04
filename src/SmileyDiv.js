@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const SmileyDiv = styled.div`
   transition: all 0.5s;
   text-align: center;
+  display: grid;
   cursor: pointer;
   ::before {
     font-size: 2.5rem;
