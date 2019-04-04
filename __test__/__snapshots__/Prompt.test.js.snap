@@ -15,31 +15,31 @@ exports[`Prompt matches snapshot 1`] = `
     className="sc-bwzfXH bXowzj"
   >
     <div
-      className="sc-bdVaJa guAvVn"
+      className="sc-bdVaJa HHxyE"
       label="Terrible"
       onClick={[Function]}
       selected={false}
     />
     <div
-      className="sc-bdVaJa HaxaG"
+      className="sc-bdVaJa crhCQw"
       label="Bad"
       onClick={[Function]}
       selected={false}
     />
     <div
-      className="sc-bdVaJa dWFDNu"
+      className="sc-bdVaJa iyzqPF"
       label="Okay"
       onClick={[Function]}
       selected={false}
     />
     <div
-      className="sc-bdVaJa ivPrKb"
+      className="sc-bdVaJa dMybav"
       label="Good"
       onClick={[Function]}
       selected={false}
     />
     <div
-      className="sc-bdVaJa rZrGd"
+      className="sc-bdVaJa fRkOYZ"
       label="Great"
       onClick={[Function]}
       selected={false}
