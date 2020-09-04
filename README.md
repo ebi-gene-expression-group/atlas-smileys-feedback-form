@@ -1,4 +1,6 @@
-# Atlas Feedback Form [![Coverage Status](https://coveralls.io/repos/github/ebi-gene-expression-group/atlas-smileys-feedback-form/badge.svg?branch=master)](https://coveralls.io/github/ebi-gene-expression-group/atlas-smileys-feedback-form?branch=master) [![Build Status](https://travis-ci.org/ebi-gene-expression-group/atlas-smileys-feedback-form.svg?branch=master)](https://travis-ci.org/ebi-gene-expression-group/atlas-smileys-feedback-form)
+# This component has been permanently moved to the [Atlas Components monorepo](https://github.com/ebi-gene-expression-group/atlas-components)
+
+# Atlas Feedback Form [![Coverage Status]
 
 ## Description
 This feedback form is triggered by clicking a right-side button, which contains a mandatory five-scale smiley score bar
